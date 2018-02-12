@@ -1,0 +1,270 @@
+<style type="text/css">
+  .all_profile .profile_content {
+    margin-bottom: 18px;
+    overflow-x: scroll;
+  }
+
+  @import url("//fonts.googleapis.com/css?family=Roboto400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic&subset=latin,cyrillic");
+  .table {
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.12), 0 1px 2px 0 rgba(0,0,0,0.24);
+    width: 100%;
+    max-width: 100%;    
+    background-color: #fff;
+    border: 0;
+    border-collapse: collapse;
+    font-family: "RobotoDraft", "Roboto", "Helvetica Neue, Helvetica, Arial", sans-serif;
+    color: #212121;
+  }
+  .table th,
+  .table td {
+    text-align: left;
+    vertical-align: top;
+    border: inherit;
+  }
+  .table thead tr {
+    border-bottom: 1px solid #e1e1e1;
+  }
+  .table thead th {
+    font-weight: 900;
+    vertical-align: middle;
+    padding: 1em 1.5em 1em 1.5em;
+    border-left: 1px solid #fff;
+  }
+  .table thead th:nth-child(1) {
+    border-left: 0px;
+  }
+  .table tbody td {
+    padding: 0.5em 1.5em 0.5em 1.5em;
+    vertical-align: middle;
+    text-align: center;
+  }
+  .table caption + thead tr:first-child,
+  .table colgroup + thead tr:first-child,
+  .table thead:first-child tr:first-child {
+    border-top: 0;
+  }
+  .table caption + thead tbody + .table caption + thead tbody,
+  .table colgroup + thead tbody + .table colgroup + thead tbody,
+  .table thead:first-child tbody + .table thead:first-child tbody {
+    border-top: 1px solid #dedede;
+  }
+  .table thead {
+    background-color: #E91E63;
+    color: #fff;
+  }
+  .table caption {
+    opacity: 0.5;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    font-style: italic;
+    text-align: left;
+    line-height: 2;
+    margin: 1em 0;
+  }
+  .table-header-title {
+    font-size: 2.4em;
+    line-height: 3.2em;
+    letter-spacing: 0;
+    font-weight: 300;
+    color: #212121;
+    text-transform: inherit;
+    margin-bottom: 1em;
+    text-align: center;
+  }
+  .table-header-subtitle {
+    font-size: 1.5em;
+    line-height: 2.8em;
+    letter-spacing: 0.01em;
+    font-weight: 400;
+    color: #212121;
+    text-align: center;
+  }
+  .table-bordered thead tr {
+    border-bottom-width: 2px;
+  }
+  .table-bordered tr {
+    border-bottom: 1px solid #e1e1e1;
+  }
+  .table-condensed tr,
+  .table-condensed th,
+  .table-condensed td {
+    padding: 0.8em;
+  }
+  .table-striped tbody tr:nth-child(odd) {
+    background-color: #f6f6f6;
+  }
+  .table-hover tbody tr {
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+  }
+  .table-hover tbody tr:hover {
+    background-color: #e7e7e7;
+  }
+  @media screen and (max-width: 768px) {
+  .table-responsive-vertical .table {
+    margin-bottom: 0;
+    background-color: transparent;
+  }
+  .table-responsive-vertical .table thead,
+  .table-responsive-vertical .table tfoot {
+    display: none;
+  }
+  .table-responsive-vertical .table tbody {
+    display: block;
+  }
+  .table-responsive-vertical .table tbody tr {
+    display: block;
+    border: 1px solid #e1e1e1;
+    border-radius: 2px;
+    margin-bottom: 1.6em;
+  }
+  .table-responsive-vertical .table tbody tr td {
+    background-color: #fff;
+    display: block;
+    vertical-align: middle;
+    text-align: right;
+  }
+  .table-responsive-vertical .table tbody tr td[data-title]:before {
+    content: attr(data-title);
+    float: left;
+    font-size: inherit;
+    font-weight: 400;
+    color: #3f3f3f;
+  }
+}
+</style>
+<div class="all_profile" ng-controller="AllProfileController">
+  <div class="profile_content">
+    <table border="1" class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>SNo.</th>
+          <th>Name</th>
+          <th>Profile Picture</th>
+          <th>Cover Photos</th>
+          <th>Gender</th>
+          <th>Date of Birth</th>
+          <th>Looking For</th>
+          <th>Friends</th>
+          <th>About Me</th>
+          <th>Previous Names</th>
+          <th>Family Friends</th>
+          <th>Quotes</th>
+          <th>Relationship Status</th>
+          <th>Residence</th>
+          <th>Hometown</th>
+          <th>Education</th>
+          <th>Work</th>
+          <th>Contact Information</th>
+          <th>Videos</th>
+          <th>Check ins</th>
+          <th>Events</th>
+          <th>Sports</th>
+          <th>Music</th>
+          <th>Album</th>
+          <th>Groups</th>
+          <th>TV Shows</th>
+          <th>Movies</th>
+          <th>Books</th>
+          <th>Apps</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="profile in allProfiles"  title="{{profile.full_name}}">
+          <td>{{$index + 1}}</td>
+          <td>
+            <a href="{{profile.profile_url}}" target="_blank" title="{{profile.full_name}}">
+              <span>{{profile.full_name}}<span>
+              <img ng-src="./img/new-tab.svg" alt="profile.full_name" width="15" height="15"/>
+            </a>
+          </td>
+          <td>
+            <img ng-src="{{profile.profile_pic}}" width="40" height="40" alt="{{profile.full_name}}"/>
+          </td>
+          <td>
+            <span ng-if="profile.cover_photos.length == 0">No</span>
+            <a ng-if="profile.cover_photos.length > 0" href="javascript:void(0)" ng-click="openVideoPhotoDialog($event, profile.cover_photos, 'Cover Photos')">Yes</a>
+          </td>
+          <td>{{profile.gender}}</td>
+          <td>{{profile.birthday}}</td>
+          <td>{{profile.looking_for.length > 0 ? profile.looking_for : '-' }}</td>
+          <td>
+            <span ng-if="profile.friends_others.length == 0">{{profile.friends_others.length}}</span>
+            <a ng-if="profile.friends_others.length > 0" href="javascript:void(0)" ng-click="openFriendsDialog($event, profile.friends_others)">{{profile.friends_others.length}}</a>
+          </td>
+          <td>{{profile.about_me > 0 ? profile.about_me : '-' }}</td>
+          <td>
+            <array-dialog array-values="profile.previous_name" dialog-title="Previous Names"></array-dialog>
+          </td>
+          <td>
+            <array-dialog array-values="profile.family_friends" dialog-title="Family Friends"></array-dialog>
+          </td>
+          <td>{{profile.quotes.length > 0 ? profile.quotes : '-' }}</td>
+          <td>{{profile.relationship_status.length > 0 ? profile.relationship_status : '-' }}</td>
+          <td>{{profile.residence.length > 0 ? profile.residence : '-' }}</td>
+          <td>{{profile.hometown.length > 0 ? profile.hometown : '-' }}</td>
+          <td>
+            <array-dialog array-values="profile.education" dialog-title="Education"></array-dialog>
+          </td>
+          <td>
+            <array-dialog array-values="profile.employers" dialog-title="Employers"></array-dialog>
+          </td>
+          <td>
+            <span ng-if="profile.contact.address.length > 0">
+              Address: {{profile.contact.address}} <br/>
+            </span>
+            <span ng-if="profile.contact.email_address.length > 0">
+              Email: <array-dialog array-values="profile.contact.email_address" dialog-title="Emails"></array-dialog> <br/>
+            </span>
+            <span ng-if="profile.contact.phone.length > 0">
+              Phone: <array-dialog array-values="profile.contact.phone" dialog-title="Phones"></array-dialog> <br/>
+            </span>            
+            <span ng-if="profile.contact.screen_name.length > 0">
+              Screenname: <array-dialog array-values="profile.contact.screen_name" dialog-title="Phones"></array-dialog> <br/>
+            </span>
+            <span ng-if="profile.contact.website.length > 0">
+              Website: {{profile.contact.website.length}} <br/>
+            </span>
+          </td>
+          <td>
+            <span ng-if="profile.video.length == 0">{{profile.video.length}}</span>
+            <a ng-if="profile.video.length > 0" href="javascript:void(0)" ng-click="openVideoPhotoDialog($event, profile.video, 'Videos')">{{profile.video.length}}</a>
+          </td>
+          <td>{{profile.checkIns}}</td>
+          <td>
+            <array-dialog array-values="profile.events" dialog-title="Events"></array-dialog>
+          </td>
+          <td>
+            <array-dialog array-values="profile.sports" dialog-title="Sports"></array-dialog>
+          </td>
+          <td>
+            <array-dialog array-values="profile.music" dialog-title="Music"></array-dialog>
+          </td>
+          <td>
+            <span ng-if="profile.album.length == 0">{{profile.album.length}}</span>
+            <a ng-if="profile.album.length > 0" href="javascript:void(0)" ng-click="openVideoPhotoDialog($event, profile.album, 'Albums')">{{profile.album.length}}</a>
+          </td>
+          <td>
+            <array-dialog array-values="profile.groups" dialog-title="Groups"></array-dialog>
+          </td>
+          <td>
+            <array-dialog array-values="profile.tv" dialog-title="TV"></array-dialog>
+          </td>
+          <td>
+            <array-dialog array-values="profile.movies" dialog-title="Movies"></array-dialog>
+          </td>
+          <td>
+            <array-dialog array-values="profile.books" dialog-title="Books"></array-dialog>
+          </td>
+          <td>
+            <array-dialog array-values="profile.apps" dialog-title="Apps"></array-dialog>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Full Profile List -->
+  <div class="link_button" layout="row" layout-align="center center">
+    <md-button class="md-raised md-primary" ui-sref="landing">Back</md-button>
+  </div>
+</div>

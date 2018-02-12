@@ -1,0 +1,10 @@
+<div>
+  <b>{{label}} :</b>
+  <span ng-repeat="(key, code) in value">
+    {{key}} - <b>{{code}}</b>
+    <span ng-if="!$last">, </span>
+  </span>
+  <span ng-if="value.length == 0">
+    -
+  </span>
+</div>

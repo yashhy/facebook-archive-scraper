@@ -57,3 +57,11 @@ typings/
 # dotenv environment variables file
 .env
 
+
+/profiles/**/
+!/profiles/facebook-archivescrapper/**/
+!/profiles/facebook-archivescrapper
+
+gender.json
+master.json
+npm-debug.log

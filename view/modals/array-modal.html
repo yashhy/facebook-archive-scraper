@@ -1,0 +1,29 @@
+<md-dialog aria-label="Friends dialog" flex="30">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>{{dialogTitle}} - Total: {{arrayValues.length}}</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" aria-label="Close" ng-click="cancel()">
+        <md-icon md-svg-icon="./img/clear_white.svg"></md-icon>
+        <md-tooltip md-direction="bottom">
+          Close
+        </md-tooltip>
+      </md-button>
+    </div>
+  </md-toolbar>
+
+  <md-dialog-content>
+    <md-list>
+      <md-list-item ng-repeat="arrayItem in arrayValues track by $index">
+        <div class="md-list-item-text">
+          <p>{{arrayItem}}</p>
+        </div>
+        <md-divider></md-divider>
+      </md-list-item>
+    </md-list>
+  </md-dialog-content>
+
+  <md-dialog-actions>
+    <md-button ng-click="cancel()" class="md-raised md-warn">Dismiss</md-button>
+  </md-dialog-actions>
+</md-dialog>

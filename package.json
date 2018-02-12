@@ -1,0 +1,23 @@
+{
+  "name": "facebook-archive-scrapper",
+  "version": "1.0.0",
+  "description": "Facebook (fb) Archive Scrapper. Helps scrapping our your downloaded FB Archive data (zip) and spits out into a JSON file and a stunning User Interface.",
+  "main": "index.js",
+  "scripts": {
+    "scrap-n-display": "npm run scrap && http-server -o -p 8888",
+    "scrap": "node index.js"
+  },
+  "keywords": [
+    "facebook",
+    "archive",
+    "scrapping",
+    "analytics",
+    "comparision"
+  ],
+  "author": "Yashwanth",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "1.0.0-rc.2",
+    "http-server": "0.10.0"
+  }
+}

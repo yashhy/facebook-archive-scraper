@@ -1,0 +1,159 @@
+<style type="text/css">
+  body .main_content {
+    margin-bottom: 20px;
+  }
+
+  .main_content .male_content button {
+    margin-top: 25px;
+    width: 250px;
+    height: 250px;
+  }
+
+  .main_content .male_content button span {
+    font-size: 100px;
+  }
+
+  .main_content .male_content {
+    padding-bottom: 15px;
+  }
+
+  .main_content .male_content .male_button {
+    display: inline-table;
+  }
+
+  .main_content .female_content {
+    border-left: 4px dashed #424242;
+    padding-bottom: 15px;
+  }
+
+  .main_content .female_content .female_button {
+    display: inline-table;
+  }
+
+  .gender_tooltip {
+    padding: 6px;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 15px;
+  }
+
+  .main_content .female_content button {
+    margin-top: 25px;
+    width: 250px;
+    height: 250px;
+  }
+
+  .main_content .female_content button span{
+    font-size: 100px;
+  }
+
+  .main_content .male_details .first h3 {
+    text-align: center;
+    margin-top: 5px;
+  }
+
+  .main_content .female_details .first h3 {
+    text-align: center;
+    margin-top: 5px;
+  }
+
+  .main_content .male_details .output-div {
+    padding: 0px 20px 0px 20px;
+  }
+
+  .main_content .female_details .output-div {
+    padding: 5px 20px 0px 20px;
+  }
+
+  body .unspecified {
+    margin-bottom: 20px;
+  }
+
+  body .landing_page .pad-25 {
+    padding: 25px;
+  }
+</style>
+
+<div class="landing_page" ng-if="!isError">
+  <div layout="row" class="main_content md-whiteframe-4dp">
+      
+    <!-- Male Content -->
+    <div flex layout="column" layout-align="center center" class="male_content">
+      <div flex layout="column" layout-align="top center" class="male_button">
+        <md-button class="md-fab md-primary" aria-label="Male">
+          M
+          <md-tooltip class="gender_tooltip" md-direction="right">
+            Male
+          </md-tooltip>
+        </md-button>
+      </div>
+      <div layout="column" class="male_details">
+        <div class="first">
+          <h3>Total: {{male.total}}</h3>
+        </div>
+        <div ng-if="male.total > 0" class="output-div">
+          <gender-output gender="male"></gender-output>
+        </div>
+      </div>
+      <div ng-if="male.total == 0">
+        That's All Folks!
+      </div>
+    </div>
+
+    <!-- Female Content -->
+    <div flex layout="column" layout-align="center center" class="female_content">
+      <div flex layout="column" layout-align="top center" class="female_button">
+        <md-button class="md-fab md-accent md-big" aria-label="Female">
+          F
+          <md-tooltip class="gender_tooltip" md-direction="right">
+            Female
+          </md-tooltip>
+        </md-button>
+      </div>
+      <div layout="column" class="female_details">
+        <div class="first">
+          <div>
+            <h3>Total: {{female.total}}</h3>
+          </div>
+        </div>
+        <div ng-if="female.total > 0" class="output-div">
+          <gender-output gender="female"></gender-output>
+        </div>
+        <div ng-if="female.total == 0">
+          That's All Folks!
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gender Unspecified -->
+  <div ng-if="unknown.total != 0" class="unspecified md-whiteframe-4dp" layout="column" layout-align="center center">
+    <h3>Gender Unspecified: {{unknown.total}}</h3>
+  </div>
+  
+  <!-- Full Profile List -->
+  <div class="link_button" layout="row" layout-align="center center">
+    <md-button class="md-raised md-primary" ui-sref="allProfiles">View All Profiles</md-button>
+  </div>
+</div>
+
+<div class="landing_page" ng-if="isError">
+  <div class="unspecified md-whiteframe-4dp pad-25" layout="column" layout-align="center center">
+    <div>
+      <h2>Oops! It seems your <i>gender.json</i> is not generated. </h2><br/>
+      <b>Possible Cases :</b><br/>
+      <ul>
+        <li>Probably there is no profile to scrap. Please read our instruction to set-up 
+          <a href="https://github.com/yashhy/facebook-archive-scrapper#facebook-archive-scrapper" target="_blank">here</a>.
+        </li>
+        <li>There should be an error in your console
+           Please open up a issue
+            <a href="https://github.com/yashhy/facebook-archive-scrapper/issues" target="_blank">here</a>
+          with necesary details.
+        </li>
+      </ul>
+      
+    </div> 
+  </div>
+</div>
