@@ -31,8 +31,7 @@ Facebook (fb) Archive Scrapper. Convert your facebook data to JSON. Helps scrapp
 
 ![Step 6](https://raw.githubusercontent.com/yashhy/facebook-archive-scrapper/master/img/tuts/6.png "Download Archive")
 
-#### 10. After download, unzip it and paste it inside 
-[profiles](https://github.com/yashhy/facebook-archive-scrapper/tree/master/profiles) folder. I already have a sample FB Archived profile for you. 
+#### 10. After download, unzip it and paste it inside [profiles](https://github.com/yashhy/facebook-archive-scrapper/tree/master/profiles) folder. I already have a sample FB Archived profile for you. 
 
 ***
 
